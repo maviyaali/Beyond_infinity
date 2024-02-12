@@ -1,0 +1,140 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour</title>
+    <link rel="icon" href="img/New_Logo.jpeg" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navigationbar">
+        <nav class="nav nav_top">
+            <a class="logo" href="/"><img src="img/New_Logo.jpeg" height="100px"></a>
+            <div class="nav_side">
+                <a href="/">Home</a>
+                <a href="/" >Search For Colleges</a>
+                <a href="#Contact">Contact Us</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="maincollege">
+        <div class="imgcoll">
+            <a href="https://earth.google.com/web/search/<%=college.name%>" target="_blank" id="collegeimage"><img
+                    title="Take A Virtual Tour!" src="<%=college.url%>" width="100%"></a>
+        </div>
+        <div class="dataofCollege " id="arrange">
+            <h2><%= college.name %> </h2>
+            <h3>Established in :- <%= college.establishment %> </h3>
+            <h3>Affliation : <%= college.universityAffiliation %> </h3>
+            <h3>Address :- <%= college.address %> </h3>
+        </div>
+
+    </div>
+    <hr>
+    <div class="itemcontainer">
+        <div class="itemcourses">
+            <h2 class="facility"> Courses </h2>
+            <hr class="rule">
+            <div class="list-courses">
+                <table class="table table-dark table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">UG/PG/Diploma</th>
+                            <th scope="col">Intake Capacity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let i=0 ; i < college.courses.length ; i++ ) { %>
+                            <tr>
+                                <th scope="row"><%= i+1 %> </th>
+                                <td><%= college.courses[i].courseName %> </td>
+                                <td><%= college.courses[i].level %> </td>
+                                <td><%= college.courses[i].intake %> </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <div class="itemcourses">
+            <h2 class="facility"> Facilities</h2>
+            <hr class="rule">
+            <div class="list-facilities">
+                <ul>
+                    <% for( let facility of college.facilities ) { %>
+                        <li><%= facility %>  </li>
+                    <% } %>
+                    
+                    <!-- <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li>
+                    <li>24 x 7 library</li> -->
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <footer id="Contact">
+        <div class="logo">
+            <a class="logo" href="#"><img src="img/New_Logo.jpeg" height="80px"></a>
+        </div>
+        <div class="mainfooter">
+            <div class="social">
+                <h2>Team Members</h2>
+
+                <div class="namesmain">
+                    <div class="threenames">
+                        <h3>Tejas Thorat</h3>
+                        <h3>Sachit Sankhe</h3>
+                        <h3>Utkarsh Chheda</h3>
+                    </div>
+                    <div class="threenames">
+                        <h3>Harsh Singh</h3>
+                        <h3>Shubham Mahakal</h3>
+                        <h3>Shreya Lanjewar</h3>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="githubrepo">
+                <h3>Our GitHub Repo</h3>
+                <a href="https://github.com/tdttejas/BEYOND_INFINITY" target="_blank"><i class="fa fa-github" style="font-size:36px"></i></a>
+            </div>
+        </div>
+        <hr>
+        <p>Copyright &copy; 2022 BEYOND_INFINITY. All rights reserved</p>
+    </footer>
+</body>
+
+</html>
